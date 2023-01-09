@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "digital-7";
+    src: url("digital-7 (mono).ttf") format("truetype");
+}
+
+body {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    color: #00bfff;
+}
+
+.night {
+    color: #ff0000
+}
+
+#date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12vh;
+    margin-left: 8px;
+}
+
+#amPm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12vh;
+    margin-right: 8px;
+    text-align: right;
+}
+
+#currentTemperature {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 15vh;
+    margin-left: 8px;
+}
+
+#forecastTemperature {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 10vh;
+    margin-right: 8px;
+    text-align: right;
+}
+
+#clock {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 60vh;
+    text-align: center;
+    line-height: 100vh;
+    font-family: 'digital-7';
+}
