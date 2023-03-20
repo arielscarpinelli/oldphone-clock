@@ -1,9 +1,11 @@
 CACHE MANIFEST
-# Version 0.0.1
+# Version 0.0.2
 
+/
 script.js
 styles.css
-digital-7 (mono).ttf
+digital-7.ttf
+icon.png
 
 NETWORK:
 https://api.openweathermap.org

@@ -10,7 +10,7 @@ var forecastTemperatureElement = document.getElementById("forecastTemperature");
 var currentLat = -34.52;
 var currentLon = -58.49;
 
-var APP_ID = "setyourown";
+var APP_ID = "d0296b188dd9593e131ea56a86da5cab";
 
 function showTime() {
 
@@ -46,7 +46,7 @@ function showTime() {
 
 }
 
-function get(url, callback) {
+function get(url, callback, err) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
 
@@ -54,9 +54,13 @@ function get(url, callback) {
       if (this.status === 200) {
         callback(JSON.parse(this.responseText));
       } else {
-        console.error(this.statusText);
+        err(error)
       }
     };
+
+    xhr.onerror = function() {
+        err("XHRError");
+    }
     
     xhr.send();
 }
@@ -69,6 +73,8 @@ function fetchCurrentTemperature() {
     setTimeout(fetchCurrentTemperature, 1800000);
     get("https://api.openweathermap.org/data/2.5/weather?lat=" + currentLat + "&lon=" + currentLon + "&appid=" + APP_ID + "&units=metric", function(response) {
         currentTemperatureElement.innerHTML = formatTemp(response.main.temp);
+    }, function(err) {
+        currentTemperatureElement.innerHTML = err;
     });
 }
 
@@ -86,6 +92,8 @@ function fetchForecastTemperature() {
         var max = Math.max.apply(null, temps);
 
         forecastTemperatureElement.innerHTML = formatTemp(min) + " - " + formatTemp(max);
+    }, function(err) {
+        forecastTemperatureElement.innerHTML = err;
     });
 }
 
